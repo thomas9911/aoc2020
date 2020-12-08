@@ -58,11 +58,11 @@ def _fixable_commands(program):
 
     new_program = []
     for (number, line) in enumerate(program):
-        xd = False
+        valid = False
         for command in commands:
-            xd |= line.startswith(command)
+            valid |= line.startswith(command)
 
-        new_program.append((number, xd))
+        new_program.append((number, valid))
 
     return new_program
 
