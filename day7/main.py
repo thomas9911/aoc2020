@@ -13,7 +13,6 @@ class RuleBook:
 
     def can_contain(self, color):
 
-
         colors = self._find_direct(color)
         z = [self.can_contain(x) for x in colors]
         b = [x for y in z for x in y]
@@ -34,17 +33,18 @@ class RuleBook:
     def lookup(self, color):
         if color is None:
             return []
-        
+
         bags = []
         rule = self.rules[color]
         for sub_rule in rule:
             sub_color = sub_rule["color"]
             sub_amount = sub_rule["amount"]
             if sub_color is not None:
-                bags.extend([sub_color]*sub_amount)
-                bags.extend(sub_amount*self.lookup(sub_color))
-        
+                bags.extend([sub_color] * sub_amount)
+                bags.extend(sub_amount * self.lookup(sub_color))
+
         return bags
+
 
 def parse_line(input):
     [left, rest] = input.split("bags contain")
