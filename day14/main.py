@@ -173,7 +173,7 @@ def main():
         for i in instructions:
             m.run(i)
 
-        print(sum([x for x in m.values()]))
+        print(sum(m.values()))
 
 
 if __name__ == "__main__":
